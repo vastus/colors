@@ -1,0 +1,48 @@
+<head>
+  <title>colors</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div id="colors">
+    {{> colors_list}}
+  </div>
+</body>
+
+<template name="colors_list">
+  <h1>Colours</h1>
+
+  <div id="colors-add">
+    {{> colors_add}}
+  </div>
+
+  <p>Click a color to select it. Then give points as you wish.</p>
+
+  <div id="colors-list">
+    {{#each colors}}
+      {{> color}}
+    {{/each}}
+  </div>
+
+  <div id="judger">
+    {{> judger}}
+  </div>
+</template>
+
+<template name="colors_add">
+  <input type="text" id="add-color" placeholder="Add a new color">
+</template>
+
+<template name="color">
+  <div class="color">
+    <span class="color-item {{selected}}">
+      <input type="text" class="color-name" value="{{name}}"> has
+      {{points}} pts
+    </span>
+    <span class="divider">|</span> <span class="remove-color" title="Kill this color">&dagger;</span>
+  </div>
+</template>
+
+<template name="judger">
+  <button class="minimal" id="judge-em">Give points</button>
+</template>
